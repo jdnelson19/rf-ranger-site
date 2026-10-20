@@ -16,7 +16,7 @@ The landing page for [RF Ranger](https://github.com/jdnelson19/RF-Ranger), serve
 3. **Settings → Domains & Routes → Add → Custom domain → `rfranger.app`**, and `www.rfranger.app` too if you want it. With the domain on Cloudflare DNS this is one step. `.app` domains are HTTPS-only, which Cloudflare handles.
 4. In the RF-Ranger repo, create a label named `feedback` (Issues → Labels) so submissions are easy to filter.
 
-Pushes to `main` deploy automatically.
+Pushes to `main` deploy through GitHub Actions (`.github/workflows/deploy.yml`, which runs `wrangler deploy`). That needs two repository secrets: `CLOUDFLARE_API_TOKEN` (an API token from the **Edit Cloudflare Workers** template) and `CLOUDFLARE_ACCOUNT_ID`. Deploy logs are in the repository's **Actions** tab, and **Run workflow** deploys again by hand. Cloudflare's own Git builds for the Worker stopped picking up pushes, so they are not used.
 
 ## Email sign-ups
 
