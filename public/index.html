@@ -108,6 +108,7 @@
               <option value="idea">Idea or request</option>
               <option value="bug">Something isn't working</option>
               <option value="question">Question</option>
+              <option value="device">New device / device report</option>
               <option value="other">Other</option>
             </select>
           </label>
@@ -122,7 +123,7 @@
           </label>
           <label>
             <span>Version <em>(optional)</em></span>
-            <input name="version" maxlength="20" placeholder="e.g. 0.1.8" autocomplete="off">
+            <input name="version" maxlength="20" placeholder="e.g. 0.2.1" autocomplete="off">
           </label>
         </div>
         <label>
@@ -131,8 +132,17 @@
             placeholder="What happened, or what would help? For a problem: which receiver and transmitter, and what you expected to see."></textarea>
         </label>
         <label>
-          <span>Name or team <em>(optional)</em></span>
+          <span>Name or company <em>(optional)</em></span>
           <input name="name" maxlength="80" autocomplete="organization">
+        </label>
+        <label class="form__file">
+          <span>Device report <em>(optional)</em></span>
+          <input name="report" type="file" accept=".json,application/json">
+          <small>
+            Got a receiver or charger RF Ranger doesn't support yet, or one that shows something wrong? In RF Ranger, open
+            ⚙ → <b>Inspector</b>, watch the device, then <b>Export report</b> with <b>Remove names &amp; addresses</b> left on,
+            and attach the file here. It's kept private for the RF Ranger developers; only its model and size are posted.
+          </small>
         </label>
         <!-- People leave this empty; bots fill it in. -->
         <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>

@@ -26,6 +26,14 @@ Pushes to `main` deploy through GitHub Actions (`.github/workflows/deploy.yml`, 
 - **Unsubscribe someone:** delete their `email:<address>` key.
 - **Sending:** this site doesn't send email. Export the list and use your own email service, with an unsubscribe link, when a major version ships.
 
+## Device reports
+
+The feedback form takes an optional **device report**: the file RF Ranger's Inspector exports for a receiver or charger that isn't supported yet. The Worker only accepts reports exported with **Remove names & addresses** on. It keeps the file private in the `REPORTS` KV namespace (created on the first deploy) and posts only the model, firmware and size in the public issue, labelled `device-report`, with the key to read the file:
+
+```
+npx wrangler kv key get --binding REPORTS report:2026-10-20-ab12cd34 --remote > report.json
+```
+
 ## Run it locally
 
 ```

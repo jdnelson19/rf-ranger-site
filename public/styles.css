@@ -135,3 +135,5 @@ h2 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.02e
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .foot__gh { display: inline-flex; align-items: center; gap: 6px; color: var(--text-2); text-decoration: none; }
 .foot__gh:hover { color: var(--text); }
+.form__file input[type=file] { padding: 8px; font-size: 14px; }
+.form__file small { font-weight: 400; font-size: 13px; color: var(--muted); line-height: 1.5; }

@@ -12,3 +12,7 @@ not_found_handling = "none"
 # namespace on the first deploy; no ID needs to be filled in.
 [[kv_namespaces]]
 binding = "SUBSCRIBERS"
+
+# Device reports attached to feedback (src/feedback.js), kept private. Created on first deploy.
+[[kv_namespaces]]
+binding = "REPORTS"

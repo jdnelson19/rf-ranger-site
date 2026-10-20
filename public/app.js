@@ -71,6 +71,7 @@ function feedback() {
     onSent: (body, status) => {
       if (body.issueUrl) status.append(' ', Object.assign(document.createElement('a'), { href: body.issueUrl, textContent: 'See it on GitHub' }), '.');
       form.elements.message.value = '';
+      if (form.elements.report) form.elements.report.value = '';
     },
   });
 }
