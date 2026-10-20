@@ -1,4 +1,9 @@
-# Cloudflare Pages: static files in public/, API routes in functions/.
+# Cloudflare Worker: serves public/ as static files; src/worker.js answers /api/*.
 name = "rf-ranger-site"
-pages_build_output_dir = "public"
+main = "src/worker.js"
 compatibility_date = "2026-10-01"
+
+[assets]
+directory = "./public"
+# Paths with no matching file (the /api routes) go to the Worker.
+not_found_handling = "none"
