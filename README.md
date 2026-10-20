@@ -6,6 +6,7 @@ The landing page for [RF Ranger](https://github.com/jdnelson19/RF-Ranger), serve
 - `src/worker.js`: handles requests that don't match a file, which means the two API routes:
   - `src/latest.js`: `GET /api/latest`, the newest RF Ranger release and its Mac/Windows download links, read from GitHub and cached for 5 minutes. The download buttons use it, so nothing here changes when a version ships.
   - `src/feedback.js`: `POST /api/feedback`, turns the feedback form into a GitHub issue on RF-Ranger, labelled `feedback`
+  - `src/subscribe.js`: `POST /api/subscribe`, the "Get updates" email sign-up
 - `wrangler.toml`: the Worker's name and assets folder. `name` must match the Worker's name in Cloudflare.
 
 ## Cloudflare setup (once)
@@ -16,6 +17,14 @@ The landing page for [RF Ranger](https://github.com/jdnelson19/RF-Ranger), serve
 4. In the RF-Ranger repo, create a label named `feedback` (Issues → Labels) so submissions are easy to filter.
 
 Pushes to `main` deploy automatically.
+
+## Email sign-ups
+
+"Get updates" stores each address in a Workers KV namespace bound as `SUBSCRIBERS` (see `wrangler.toml`). Wrangler creates the namespace on the first deploy, so there is nothing to set up. Addresses are never shown on the site or posted anywhere public.
+
+- **See the list:** Cloudflare dashboard → Storage & Databases → **KV** → the namespace → KV pairs. Or, from this folder: `npx wrangler kv key list --binding SUBSCRIBERS --remote`
+- **Unsubscribe someone:** delete their `email:<address>` key.
+- **Sending:** this site doesn't send email. Export the list and use your own email service, with an unsubscribe link, when a major version ships.
 
 ## Run it locally
 

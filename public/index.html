@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RF Ranger: wireless mic monitoring</title>
-  <meta name="description" content="Free wireless mic monitoring for churches and live production. Battery, RF and audio for every Shure channel at a glance, plus a pickup screen for performers. For Mac and Windows.">
+  <meta name="description" content="Free wireless mic monitoring for live production teams. Battery, RF and audio for every channel at a glance, plus a pickup screen for performers. For Mac and Windows.">
   <meta name="theme-color" content="#08090b">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <meta property="og:title" content="RF Ranger">
@@ -24,7 +24,6 @@
       <a href="#download">Download</a>
       <a href="#about">About</a>
       <a href="#feedback">Feedback</a>
-      <a href="https://github.com/jdnelson19/RF-Ranger">GitHub</a>
     </nav>
   </header>
 
@@ -33,9 +32,8 @@
       <p class="eyebrow">Wireless mic monitoring for Mac and Windows</p>
       <h1>Your wireless.<br>Under control.</h1>
       <p class="lede">
-        See battery, RF and audio for every wireless mic at a glance, and give your performers a screen
-        that shows which mic is theirs and whether it's ready. Free, and runs on the computer you
-        already have at front of house.
+        See battery, RF and audio for every wireless channel at a glance, and give performers a screen that
+        shows which mic is theirs and whether it's ready. Free, and it runs on the laptop already at your RF desk.
       </p>
 
       <div class="downloads" data-downloads>
@@ -48,9 +46,7 @@
           <span><b>Download for Windows</b><small data-detail>Windows 10 or 11 · installer</small></span>
         </a>
       </div>
-      <p class="release" data-release>
-        <a href="https://github.com/jdnelson19/RF-Ranger/releases/latest">Latest release and notes</a>
-      </p>
+      <p class="release" data-release></p>
 
       <figure class="shot shot--hero">
         <img src="/screenshots/engineer.webp" width="2560" height="1520"
@@ -61,9 +57,9 @@
     <section class="about" id="about">
       <h2>About</h2>
       <p class="about__intro">
-        RF Ranger is for church and live-production teams who want to know, before the service starts,
-        that every mic is charged, switched on and healthy. It finds your Shure receivers on the network
-        by itself and opens in your browser, so any laptop, iPad or TV on the same network can show it.
+        RF Ranger is built for live production teams who need to know, before doors open, that every mic is
+        charged, switched on and clean. It finds your receivers on the network by itself and opens in a browser,
+        so the RF desk, the A1, stage management and a TV by the mic table can all watch the same live picture.
       </p>
 
       <div class="features">
@@ -71,7 +67,7 @@
           <figure class="shot"><img src="/screenshots/engineer.webp" width="2560" height="1520" loading="lazy"
             alt="Engineer view with ready, battery-low, on-charger and charging channels"></figure>
           <h3>Every channel at a glance</h3>
-          <p>Green is ready, orange is off or on the charger, red is a low battery or a fault. Show presets put just the mics you need for worship, the message or announcements on screen, and give each one a nickname for the day: RF-4 is "Josh" this week.</p>
+          <p>Green is ready, orange is off or on the charger, red is a low battery or a fault. Show presets put just the mics for this room or this segment on screen, with a nickname for each: RF-4 is "Sam" tonight.</p>
         </article>
         <article class="feature">
           <figure class="shot"><img src="/screenshots/waveform.webp" width="2560" height="1520" loading="lazy"
@@ -82,22 +78,27 @@
         <article class="feature">
           <figure class="shot"><img src="/screenshots/pickup.webp" width="2560" height="1520" loading="lazy"
             alt="Pickup view: large cards with each performer's name, their mic, and whether it's ready"></figure>
-          <h3>A pickup screen for the team</h3>
-          <p>Put it on a TV by the RF table. Performers find their name, see which mic or pack is theirs, and whether it's ready. No more "which one's mine?" five minutes before downbeat.</p>
+          <h3>A pickup screen for performers</h3>
+          <p>Put it on a TV by the mic table. Performers find their name, see which mic or pack is theirs, and whether it's ready.</p>
         </article>
       </div>
 
-      <dl class="facts">
-        <div><dt>Hardware</dt><dd>Shure ULX-D, Axient Digital and SLX-D receivers; SBC220 and SBC240 networked chargers. PSM 1000 in-ears are early. Sennheiser is planned.</dd></div>
-        <div><dt>Runs on</dt><dd>macOS 11 or later (Apple Silicon and Intel), Windows 10 or 11 (64-bit). No admin rights needed to install.</dd></div>
-        <div><dt>Cost</dt><dd>Free and open source (MIT). <a href="https://github.com/jdnelson19/RF-Ranger">Source on GitHub</a>.</dd></div>
-        <div><dt>Status</dt><dd>Early release: tested on Shure Axient Digital and improving quickly. Your feedback shapes what comes next.</dd></div>
-      </dl>
+      <details class="hardware">
+        <summary>Supported hardware</summary>
+        <ul>
+          <li><b>Shure Axient Digital</b> receivers</li>
+          <li><b>Shure ULX-D</b> receivers</li>
+          <li><b>Shure SLX-D</b> receivers</li>
+          <li><b>Shure SBC220 and SBC240</b> networked chargers</li>
+          <li><b>Shure PSM 1000</b> in-ear transmitters <span class="muted">(early support)</span></li>
+          <li><span class="muted">Sennheiser is planned. Using something else? Tell us below.</span></li>
+        </ul>
+      </details>
     </section>
 
     <section class="feedback" id="feedback">
       <h2>Feedback</h2>
-      <p>Something not working, or an idea that would help on a Sunday morning? Tell us here.</p>
+      <p>Something not working, or an idea that would help on show day? Tell us here.</p>
       <p class="notice">Feedback is posted publicly as an issue in the <a href="https://github.com/jdnelson19/RF-Ranger/issues?q=label%3Afeedback">RF Ranger GitHub project</a>, so please leave out anything private, such as email addresses or names of people on your team.</p>
 
       <form class="form" data-feedback action="/api/feedback" method="post">
@@ -131,7 +132,7 @@
             placeholder="What happened, or what would help? For a problem: which receiver and transmitter, and what you expected to see."></textarea>
         </label>
         <label>
-          <span>Name or church <em>(optional)</em></span>
+          <span>Name or team <em>(optional)</em></span>
           <input name="name" maxlength="80" autocomplete="organization">
         </label>
         <!-- People leave this empty; bots fill it in. -->
@@ -143,11 +144,29 @@
         </div>
       </form>
     </section>
+
+    <section class="updates" id="updates">
+      <div>
+        <h2>Get updates</h2>
+        <p>An email when a major version of RF Ranger comes out. No spam, never shared.</p>
+      </div>
+      <form class="subscribe" data-subscribe action="/api/subscribe" method="post">
+        <label class="sr-only" for="sub-email">Email address</label>
+        <input id="sub-email" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com">
+        <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
+        <input type="hidden" name="started">
+        <button class="btn btn--primary btn--send" type="submit">Subscribe</button>
+        <p class="form__status" role="status" aria-live="polite" data-status></p>
+      </form>
+    </section>
   </main>
 
   <footer class="foot">
     <span>RF Ranger · free and open source (MIT)</span>
-    <span>Not affiliated with Shure Incorporated. Shure, Axient, ULX-D and SLX-D are trademarks of their owners.</span>
+    <a class="foot__gh" href="https://github.com/jdnelson19/RF-Ranger">
+      <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.88.87 2.34.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg>
+      GitHub
+    </a>
   </footer>
 </body>
 </html>

@@ -1,8 +1,6 @@
-// Download links from the latest release, and the feedback form.
+// Download links from the latest release, the feedback form and the update sign-up.
 // Without JavaScript the buttons still go to the GitHub releases page and the
-// form still posts (the function answers with JSON either way).
-
-const RELEASES = 'https://github.com/jdnelson19/RF-Ranger/releases/latest';
+// forms still post (the Worker answers with JSON either way).
 
 function visitorOs() {
   const p = (navigator.userAgentData?.platform || navigator.platform || navigator.userAgent).toLowerCase();
@@ -29,31 +27,19 @@ async function downloads() {
       a.href = asset.url;
       a.querySelector('[data-detail]').textContent = `${detail} · ${mb(asset.size)}`;
     };
-    set('mac', r.mac, `v${r.version} · macOS 11+`);
-    set('windows', r.windows, `v${r.version} · Windows 10/11 installer`);
-
-    const line = document.querySelector('[data-release]');
-    line.textContent = '';
-    const date = new Date(r.publishedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
-    line.append(`Version ${r.version}, released ${date} · `);
-    const notes = Object.assign(document.createElement('a'), { href: r.notesUrl || RELEASES, textContent: 'What’s new' });
-    line.append(notes);
-    if (r.windowsPortable) {
-      line.append(' · ');
-      line.append(Object.assign(document.createElement('a'), { href: r.windowsPortable.url, textContent: 'Windows portable .zip' }));
-    }
+    set('mac', r.mac, 'macOS 11 or later');
+    set('windows', r.windows, 'Windows 10 or 11');
+    document.querySelector('[data-release]').textContent = `Version ${r.version}`;
   } catch {
     // offline or the API is down: the static links still work
   }
 }
 
-function feedback() {
-  const form = document.querySelector('[data-feedback]');
+/** Post a form to its Worker route and show the answer next to the button. */
+function wire(form, { onSent } = {}) {
   const status = form.querySelector('[data-status]');
   const button = form.querySelector('button[type="submit"]');
   form.elements.started.value = String(Date.now());
-  const mine = visitorOs();
-  if (mine) form.elements.platform.value = mine;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -65,11 +51,8 @@ function feedback() {
       const body = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(body.message || 'Sorry, that didn’t go through. Please try again.');
       status.dataset.tone = 'ok';
-      status.textContent = body.message || 'Thanks! Your feedback was sent.';
-      if (body.issueUrl) {
-        status.append(' ', Object.assign(document.createElement('a'), { href: body.issueUrl, textContent: 'See it on GitHub' }), '.');
-      }
-      form.elements.message.value = '';
+      status.textContent = body.message || 'Thanks!';
+      onSent?.(body, status);
       form.elements.started.value = String(Date.now());
     } catch (err) {
       status.dataset.tone = 'bad';
@@ -80,5 +63,23 @@ function feedback() {
   });
 }
 
+function feedback() {
+  const form = document.querySelector('[data-feedback]');
+  const mine = visitorOs();
+  if (mine) form.elements.platform.value = mine;
+  wire(form, {
+    onSent: (body, status) => {
+      if (body.issueUrl) status.append(' ', Object.assign(document.createElement('a'), { href: body.issueUrl, textContent: 'See it on GitHub' }), '.');
+      form.elements.message.value = '';
+    },
+  });
+}
+
+function subscribe() {
+  const form = document.querySelector('[data-subscribe]');
+  wire(form, { onSent: () => { form.elements.email.value = ''; } });
+}
+
 downloads();
 feedback();
+subscribe();

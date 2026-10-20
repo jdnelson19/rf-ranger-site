@@ -7,3 +7,8 @@ compatibility_date = "2026-10-01"
 directory = "./public"
 # Paths with no matching file (the /api routes) go to the Worker.
 not_found_handling = "none"
+
+# Email sign-ups for release news (src/subscribe.js). Wrangler creates the
+# namespace on the first deploy; no ID needs to be filled in.
+[[kv_namespaces]]
+binding = "SUBSCRIBERS"

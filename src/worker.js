@@ -4,10 +4,12 @@
  */
 import { onRequestPost as feedback } from './feedback.js';
 import { onRequestGet as latest } from './latest.js';
+import { onRequestPost as subscribe } from './subscribe.js';
 
 const ROUTES = {
   'GET /api/latest': latest,
   'POST /api/feedback': feedback,
+  'POST /api/subscribe': subscribe,
 };
 
 export default {
