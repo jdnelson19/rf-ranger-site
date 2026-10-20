@@ -1,0 +1,4 @@
+# Cloudflare Pages: static files in public/, API routes in functions/.
+name = "rf-ranger-site"
+pages_build_output_dir = "public"
+compatibility_date = "2026-10-01"

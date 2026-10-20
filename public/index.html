@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RF Ranger: wireless mic monitoring</title>
+  <meta name="description" content="Free wireless mic monitoring for churches and live production. Battery, RF and audio for every Shure channel at a glance, plus a pickup screen for performers. For Mac and Windows.">
+  <meta name="theme-color" content="#08090b">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <meta property="og:title" content="RF Ranger">
+  <meta property="og:description" content="Your wireless. Under control. Free wireless mic monitoring for Mac and Windows.">
+  <meta property="og:image" content="https://rfranger.app/screenshots/engineer.webp">
+  <meta property="og:url" content="https://rfranger.app/">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/" aria-label="RF Ranger home">
+      <img src="/icon.svg" alt="" width="30" height="30">
+      <span>RF<b>Ranger</b></span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="#download">Download</a>
+      <a href="#about">About</a>
+      <a href="#feedback">Feedback</a>
+      <a href="https://github.com/jdnelson19/RF-Ranger">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="download">
+      <p class="eyebrow">Wireless mic monitoring for Mac and Windows</p>
+      <h1>Your wireless.<br>Under control.</h1>
+      <p class="lede">
+        See battery, RF and audio for every wireless mic at a glance, and give your performers a screen
+        that shows which mic is theirs and whether it's ready. Free, and runs on the computer you
+        already have at front of house.
+      </p>
+
+      <div class="downloads" data-downloads>
+        <a class="btn btn--primary" data-os="mac" href="https://github.com/jdnelson19/RF-Ranger/releases/latest">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.8-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.6-4.1ZM13.8 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5Z"/></svg>
+          <span><b>Download for Mac</b><small data-detail>macOS 11 or later · .dmg</small></span>
+        </a>
+        <a class="btn btn--primary" data-os="windows" href="https://github.com/jdnelson19/RF-Ranger/releases/latest">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.1 10.4 4v7.2H3V5.1Zm8.4-1.2L21 2.5v8.7h-9.6V3.9ZM3 12.4h7.4v7.2L3 18.5v-6.1Zm8.4 0H21v8.7l-9.6-1.4v-7.3Z"/></svg>
+          <span><b>Download for Windows</b><small data-detail>Windows 10 or 11 · installer</small></span>
+        </a>
+      </div>
+      <p class="release" data-release>
+        <a href="https://github.com/jdnelson19/RF-Ranger/releases/latest">Latest release and notes</a>
+      </p>
+
+      <figure class="shot shot--hero">
+        <img src="/screenshots/engineer.webp" width="2560" height="1520"
+          alt="RF Ranger's engineer view: a grid of mic channels, each with its readiness, battery, RF and audio meters, and a five-second audio waveform on some">
+      </figure>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About</h2>
+      <p class="about__intro">
+        RF Ranger is for church and live-production teams who want to know, before the service starts,
+        that every mic is charged, switched on and healthy. It finds your Shure receivers on the network
+        by itself and opens in your browser, so any laptop, iPad or TV on the same network can show it.
+      </p>
+
+      <div class="features">
+        <article class="feature">
+          <figure class="shot"><img src="/screenshots/engineer.webp" width="2560" height="1520" loading="lazy"
+            alt="Engineer view with ready, battery-low, on-charger and charging channels"></figure>
+          <h3>Every channel at a glance</h3>
+          <p>Green is ready, orange is off or on the charger, red is a low battery or a fault. Show presets put just the mics you need for worship, the message or announcements on screen, and give each one a nickname for the day: RF-4 is "Josh" this week.</p>
+        </article>
+        <article class="feature">
+          <figure class="shot"><img src="/screenshots/waveform.webp" width="2560" height="1520" loading="lazy"
+            alt="A channel's detail panel with a five-second audio waveform and an RF strip underneath"></figure>
+          <h3>What just happened?</h3>
+          <p>A five-second audio waveform with the RF signal underneath. If audio drops out with the RF, it's a wireless problem. If audio spikes while RF holds steady, someone bumped the mic.</p>
+        </article>
+        <article class="feature">
+          <figure class="shot"><img src="/screenshots/pickup.webp" width="2560" height="1520" loading="lazy"
+            alt="Pickup view: large cards with each performer's name, their mic, and whether it's ready"></figure>
+          <h3>A pickup screen for the team</h3>
+          <p>Put it on a TV by the RF table. Performers find their name, see which mic or pack is theirs, and whether it's ready. No more "which one's mine?" five minutes before downbeat.</p>
+        </article>
+      </div>
+
+      <dl class="facts">
+        <div><dt>Hardware</dt><dd>Shure ULX-D, Axient Digital and SLX-D receivers; SBC220 and SBC240 networked chargers. PSM 1000 in-ears are early. Sennheiser is planned.</dd></div>
+        <div><dt>Runs on</dt><dd>macOS 11 or later (Apple Silicon and Intel), Windows 10 or 11 (64-bit). No admin rights needed to install.</dd></div>
+        <div><dt>Cost</dt><dd>Free and open source (MIT). <a href="https://github.com/jdnelson19/RF-Ranger">Source on GitHub</a>.</dd></div>
+        <div><dt>Status</dt><dd>Early release: tested on Shure Axient Digital and improving quickly. Your feedback shapes what comes next.</dd></div>
+      </dl>
+    </section>
+
+    <section class="feedback" id="feedback">
+      <h2>Feedback</h2>
+      <p>Something not working, or an idea that would help on a Sunday morning? Tell us here.</p>
+      <p class="notice">Feedback is posted publicly as an issue in the <a href="https://github.com/jdnelson19/RF-Ranger/issues?q=label%3Afeedback">RF Ranger GitHub project</a>, so please leave out anything private, such as email addresses or names of people on your team.</p>
+
+      <form class="form" data-feedback action="/api/feedback" method="post">
+        <div class="form__row">
+          <label>
+            <span>What kind of feedback?</span>
+            <select name="kind">
+              <option value="idea">Idea or request</option>
+              <option value="bug">Something isn't working</option>
+              <option value="question">Question</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label>
+            <span>Using RF Ranger on</span>
+            <select name="platform">
+              <option value="mac">Mac</option>
+              <option value="windows">Windows</option>
+              <option value="both">Both</option>
+              <option value="none">Not using it yet</option>
+            </select>
+          </label>
+          <label>
+            <span>Version <em>(optional)</em></span>
+            <input name="version" maxlength="20" placeholder="e.g. 0.1.8" autocomplete="off">
+          </label>
+        </div>
+        <label>
+          <span>Your feedback</span>
+          <textarea name="message" required minlength="10" maxlength="5000" rows="6"
+            placeholder="What happened, or what would help? For a problem: which receiver and transmitter, and what you expected to see."></textarea>
+        </label>
+        <label>
+          <span>Name or church <em>(optional)</em></span>
+          <input name="name" maxlength="80" autocomplete="organization">
+        </label>
+        <!-- People leave this empty; bots fill it in. -->
+        <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
+        <input type="hidden" name="started">
+        <div class="form__foot">
+          <button class="btn btn--primary btn--send" type="submit">Send feedback</button>
+          <p class="form__status" role="status" aria-live="polite" data-status></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>RF Ranger · free and open source (MIT)</span>
+    <span>Not affiliated with Shure Incorporated. Shure, Axient, ULX-D and SLX-D are trademarks of their owners.</span>
+  </footer>
+</body>
+</html>
