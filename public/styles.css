@@ -42,7 +42,6 @@ img { max-width: 100%; height: auto; display: block; }
 /* Hero */
 main > section { width: var(--page); margin: 0 auto; }
 .hero { padding: 72px 0 24px; text-align: center; scroll-margin-top: 60px; }
-.eyebrow { margin: 0 0 14px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 h1 { margin: 0; font-size: clamp(40px, 7vw, 72px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; }
 .lede { max-width: 640px; margin: 22px auto 0; font-size: 19px; color: var(--text-2); }
 
