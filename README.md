@@ -34,6 +34,16 @@ npx wrangler dev
 
 Opens http://localhost:8787 with the API routes running. For the feedback form to create real issues locally, put `GITHUB_TOKEN=...` in a `.dev.vars` file (ignored by git). Without it the form answers "Feedback isn't set up yet".
 
+## When RF Ranger releases a new version
+
+- **Automatic:** the download buttons and the "Version x.y.z" line under them update by themselves from `/api/latest`, cached for up to 5 minutes.
+- **By hand:** update the website's version note. Today that's checking the site shows the new version. Once the **What's new** area exists (below), it means adding the release's highlights there.
+- **Screenshots:** retake them (see below) if the release changed what's shown in them.
+
+## To do
+
+- **What's new area:** a short, dated list of each release's highlights in plain language, for people choosing whether to update. It could come from the GitHub release notes (via `/api/latest`, extended to include `body`) or be written by hand here.
+
 ## Screenshots
 
 `public/screenshots/` are taken from RF Ranger's demo mode (`npm run demo` in RF-Ranger/server): fictional names, simulated hardware. Retake them at 1280×760, 2× scale, as WebP when the UI changes.
