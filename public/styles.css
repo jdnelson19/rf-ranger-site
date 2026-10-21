@@ -156,3 +156,8 @@ h2 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.02e
 .fpage__cta { padding: 80px 0 0; text-align: center; }
 .fpage__cta .lede { margin: 8px auto 0; }
 @media (max-width: 860px) { .fsec { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Footer links: GitHub, and another project by the same developer */
+.foot__links { display: inline-flex; align-items: center; gap: 18px; }
+.foot__more { color: var(--text-2); text-decoration: none; }
+.foot__more:hover { color: var(--text); }
