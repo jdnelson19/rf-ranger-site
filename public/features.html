@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Features: RF Ranger wireless mic monitoring</title>
+  <meta name="description" content="RF Ranger features: live battery, RF and audio monitoring for Shure and Sennheiser wireless, a Micboard-style pickup screen with photos and in-ear packs, Planning Center mic assignments and Services Live timers, show presets, networked chargers and auto-discovery. Free for Mac and Windows.">
+  <meta name="theme-color" content="#08090b">
+  <link rel="canonical" href="https://rfranger.app/features">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <meta property="og:title" content="RF Ranger features">
+  <meta property="og:description" content="Wireless mic monitoring, a pickup screen for performers, and Planning Center integration. Free for Mac and Windows.">
+  <meta property="og:image" content="https://rfranger.app/screenshots/pickup.webp">
+  <meta property="og:url" content="https://rfranger.app/features">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/" aria-label="RF Ranger home">
+      <img src="/icon.svg" alt="" width="30" height="30">
+      <span>RF<b>Ranger</b></span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="/#download">Download</a>
+      <a href="/features" aria-current="page">Features</a>
+      <a href="/#about">About</a>
+      <a href="/#feedback">Feedback</a>
+    </nav>
+  </header>
+
+  <main class="fpage">
+    <section class="fpage__intro">
+      <h1>Features</h1>
+      <p class="lede">
+        Everything RF Ranger does for the RF desk, the A1 and the performers, from live battery and RF readings to a
+        pickup screen that knows who is on which mic tonight.
+      </p>
+      <nav class="fpage__toc" aria-label="On this page">
+        <a href="#monitoring">Monitoring</a>
+        <a href="#pickup">Pickup screen</a>
+        <a href="#planning-center">Planning Center</a>
+        <a href="#presets">Show presets</a>
+        <a href="#iem">In-ear monitors</a>
+        <a href="#chargers">Chargers</a>
+        <a href="#network">Setup &amp; network</a>
+        <a href="#hardware">Supported hardware</a>
+      </nav>
+    </section>
+
+    <section class="fsec" id="monitoring">
+      <div class="fsec__text">
+        <h2>Live wireless mic monitoring</h2>
+        <p>Every wireless channel on one screen, updated several times a second, in any browser on the network.</p>
+        <ul>
+          <li><b>Battery</b> as bars and percent, with runtime left, from the transmitter itself.</li>
+          <li><b>RF signal</b> per antenna, with A/B diversity lights showing which antenna is in use.</li>
+          <li><b>Audio levels</b> and a <b>five-second waveform</b> with the RF underneath: tell a wireless dropout from a bumped mic.</li>
+          <li><b>Readiness at a glance:</b> green is ready, orange is off or on the charger, red is a low battery, a fault or an offline receiver.</li>
+          <li><b>Alerts</b> for low and critical batteries, weak RF, interference, encryption faults, the wrong transmitter on a channel, and muted receiver outputs.</li>
+          <li>Transmitter model and ID, frequency, link quality and mute state for every channel.</li>
+        </ul>
+      </div>
+      <figure class="shot fsec__shot"><img src="/screenshots/waveform.webp" width="2560" height="1520" loading="lazy"
+        alt="A channel's detail panel with battery, RF and audio readings and a five-second audio waveform with the RF strip underneath"></figure>
+    </section>
+
+    <section class="fsec" id="pickup">
+      <div class="fsec__text">
+        <h2>A pickup screen for performers</h2>
+        <p>Put it on a TV by the mic table. Each person gets a column they can read from across the room.</p>
+        <ul>
+          <li><b>Their name and photo</b>, from Planning Center or the receiver's channel names.</li>
+          <li><b>Which mic is theirs</b> (RF-1, BP-3, …) and whether it's ready, charging or switched off.</li>
+          <li><b>Battery</b> as bars and percent, or the charge while it sits in its charger.</li>
+          <li><b>Their in-ear pack</b> alongside their mic: on air, RF muted, and its charge when docked.</li>
+          <li><b>Services Live countdown</b> at the top of the screen, with the segment that's on now and what's next.</li>
+          <li><b>"Leading now"</b> lights up whoever the live item's leader is.</li>
+          <li>Fits any screen by itself, with no scrolling on a TV; phones get two columns.</li>
+        </ul>
+      </div>
+      <figure class="shot fsec__shot"><img src="/screenshots/pickup.webp" width="2560" height="1520" loading="lazy"
+        alt="Pickup screen: a column per performer with their mic label, readiness, name, role, battery and paired in-ear pack, and a segment countdown at the top"></figure>
+    </section>
+
+    <section class="fsec fsec--text" id="planning-center">
+      <div class="fsec__text">
+        <h2>Planning Center integration</h2>
+        <p>RF Ranger reads your Planning Center Services schedule (read-only) and puts the right people on the right mics.</p>
+        <ul>
+          <li><b>Mic assignments from the schedule:</b> give each position its mics once ("Worship Leader" → RF-1 to RF-3, "BGV 1" → RF-5), then sync.</li>
+          <li><b>Preferences:</b> a person's preferred mic and preferred in-ear pack.</li>
+          <li><b>Automatic sync</b> a set time before rehearsal, or at a fixed time each week; several services, each with its own rules.</li>
+          <li><b>Change any mic by hand</b> after a sync; unconfirmed people and anyone left without a mic are flagged.</li>
+          <li><b>Starred mics</b> make an artist preset of just the synced mics, so the pickup screen shows only who's on tonight.</li>
+          <li><b>Services Live:</b> the live segment's countdown, the next item, and the item's leader, on the engineer and pickup screens.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fsec" id="presets">
+      <div class="fsec__text">
+        <h2>Show presets</h2>
+        <p>On a shared network RF Ranger can see every receiver in the building. Presets keep each screen to the mics that matter.</p>
+        <ul>
+          <li>Pick the channels for a room or a segment, in the order you want them.</li>
+          <li><b>Nicknames</b> per show: RF-4 is "Sam" tonight.</li>
+          <li>Choose which preset the pickup screen shows, from the engineer view; or bookmark a TV to one preset.</li>
+          <li>Edit presets from any engineer screen on the network, such as an RF tech's iPad.</li>
+        </ul>
+      </div>
+      <figure class="shot fsec__shot"><img src="/screenshots/engineer.webp" width="2560" height="1520" loading="lazy"
+        alt="Engineer view: a grid of channels with readiness, battery, RF and audio meters"></figure>
+    </section>
+
+    <section class="fsec fsec--text" id="iem">
+      <div class="fsec__text">
+        <h2>In-ear monitors</h2>
+        <ul>
+          <li><b>Shure PSM 1000</b> transmitters: channel names, frequency, RF output power, RF mute and stereo/mono mode.</li>
+          <li>Each person's in-ear pack shows next to their mic, paired by name or by their Planning Center preference.</li>
+          <li>Pack batteries through a networked charger bay. (IEM packs only receive, so they can't report their battery over the air.)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="chargers">
+      <div class="fsec__text">
+        <h2>Networked chargers</h2>
+        <ul>
+          <li><b>Shure SBC220 and SBC240</b>: every bay's charge, battery health and time to full.</li>
+          <li>Give a mic its charger bay and a docked transmitter reads "on charger" or "charging" instead of "off".</li>
+          <li>Storage mode is flagged, so batteries left at storage charge don't go out on stage.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="network">
+      <div class="fsec__text">
+        <h2>Setup and network</h2>
+        <ul>
+          <li><b>Finds receivers by itself</b> on the network and names channels from their channel names, the way Micboard does.</li>
+          <li><b>Remembers devices</b>, so a receiver that's switched off still has its channels on screen, and reconnects when it's back.</li>
+          <li><b>Add a device by IP address</b> for networks where discovery can't reach it.</li>
+          <li><b>Read-only:</b> RF Ranger never changes a setting on your hardware.</li>
+          <li><b>Device Inspector</b> to capture a device's raw data, and anonymized device reports to help add new hardware.</li>
+          <li>Runs on the Mac or Windows laptop already at your RF desk; any phone, tablet or TV on the network opens it in a browser.</li>
+          <li>Free and open source (MIT), with update notices when a new version is out.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="hardware">
+      <div class="fsec__text">
+        <h2>Supported hardware</h2>
+        <ul>
+          <li><b>Shure Axient Digital</b> receivers</li>
+          <li><b>Shure ULX-D</b> receivers</li>
+          <li><b>Shure SLX-D</b> receivers</li>
+          <li><b>Shure SBC220 and SBC240</b> networked chargers</li>
+          <li><b>Shure PSM 1000</b> in-ear transmitters</li>
+          <li><b>Sennheiser EW-DX</b> (EM 2, EM 4) and <b>Digital 6000</b> (EM 6000) receivers <span class="muted">(new, not yet confirmed on real hardware)</span></li>
+        </ul>
+        <p class="muted">Using something else? <a href="/#feedback">Tell us</a>, or send a device report from the Inspector.</p>
+      </div>
+    </section>
+
+    <section class="fpage__cta">
+      <h2>Try it on your next service</h2>
+      <p class="lede">Free for Mac and Windows.</p>
+      <div class="downloads"><a class="btn btn--primary" href="/#download"><span><b>Download RF Ranger</b></span></a></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>RF Ranger · free and open source (MIT)</span>
+    <a class="foot__gh" href="https://github.com/jdnelson19/RF-Ranger" target="_blank" rel="noopener">
+      <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.88.87 2.34.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg>
+      GitHub
+    </a>
+  </footer>
+</body>
+</html>
