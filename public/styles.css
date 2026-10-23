@@ -157,6 +157,19 @@ h2 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.02e
 .fpage__cta .lede { margin: 8px auto 0; }
 @media (max-width: 860px) { .fsec { grid-template-columns: 1fr; gap: 24px; } }
 
+/* How-to pages (raspberry-pi.html): numbered steps, commands to copy, side notes. */
+.guide code { font-family: var(--mono); font-size: 0.88em; padding: 1px 6px; border-radius: 6px; background: var(--panel-2); color: var(--text); overflow-wrap: anywhere; }
+.steps { margin: 0 0 12px; padding-left: 22px; display: grid; gap: 12px; color: var(--text-2); }
+.steps > li::marker { color: var(--accent); font-weight: 700; }
+.steps li b, .fsec__text p b { color: var(--text); }
+.steps ul { margin-top: 8px; }
+.cmd { position: relative; margin: 10px 0 14px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--bg-2); }
+.cmd pre { margin: 0; padding: 12px 84px 12px 14px; overflow-x: auto; }
+.cmd code { padding: 0; background: none; font-size: 14px; overflow-wrap: normal; white-space: pre; }
+.cmd__copy { position: absolute; top: 7px; right: 7px; padding: 4px 10px; border: 1px solid var(--line-2); border-radius: 7px; background: var(--panel-2); color: var(--text-2); font: 13px var(--font); cursor: pointer; }
+.cmd__copy:hover { color: var(--text); border-color: var(--muted); }
+.note { margin: 14px 0 0; padding: 12px 14px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; background: var(--panel); }
+
 /* Footer links: GitHub, and another project by the same developer */
 .foot__links { display: inline-flex; align-items: center; gap: 18px; }
 .foot__more { color: var(--text-2); text-decoration: none; }

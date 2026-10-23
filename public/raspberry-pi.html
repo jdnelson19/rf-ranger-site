@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Install RF Ranger on a Raspberry Pi</title>
+  <meta name="description" content="Step by step: set up a Raspberry Pi as an always-on RF Ranger server that shows the wireless mic pickup screen on a TV. SD card, first start, one install command, and troubleshooting.">
+  <meta name="theme-color" content="#08090b">
+  <link rel="canonical" href="https://rfranger.app/raspberry-pi">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Install RF Ranger on a Raspberry Pi">
+  <meta property="og:description" content="An always-on RF Ranger server behind the TV, with the pickup screen at boot.">
+  <meta property="og:image" content="https://rfranger.app/screenshots/pickup.webp">
+  <meta property="og:url" content="https://rfranger.app/raspberry-pi">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/" aria-label="RF Ranger home">
+      <img src="/icon.svg" alt="" width="30" height="30">
+      <span>RF<b>Ranger</b></span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="/#download">Download</a>
+      <a href="/features">Features</a>
+      <a href="/#about">About</a>
+      <a href="/#feedback">Feedback</a>
+    </nav>
+  </header>
+
+  <main class="fpage guide">
+    <section class="fpage__intro">
+      <h1>Install RF Ranger on a Raspberry Pi</h1>
+      <p class="lede">
+        Put a Raspberry Pi behind the TV by the mic table and it runs RF Ranger all week: it starts by itself, shows the
+        pickup screen on the TV, and every laptop and iPad on the network can open it too. Allow about half an hour,
+        most of it waiting for the Pi.
+      </p>
+      <nav class="fpage__toc" aria-label="On this page">
+        <a href="#need">What you need</a>
+        <a href="#card">1. The SD card</a>
+        <a href="#start">2. First start</a>
+        <a href="#install">3. Install</a>
+        <a href="#open">4. Open it</a>
+        <a href="#admin">Admin password</a>
+        <a href="#update">Updating</a>
+        <a href="#help">Troubleshooting</a>
+      </nav>
+    </section>
+
+    <section class="fsec fsec--text" id="need">
+      <div class="fsec__text">
+        <h2>What you need</h2>
+        <ul>
+          <li><b>A Raspberry Pi 4 or 5</b> with 2 GB of memory or more, and its <b>official power supply</b>. A phone charger often can't power a Pi properly, and an underpowered Pi misbehaves in odd ways.</li>
+          <li><b>A microSD card</b>, 16 GB or larger, from a known brand.</li>
+          <li><b>An Ethernet cable</b> to the network your receivers are on. Wi-Fi often drops the messages receivers use to announce themselves.</li>
+          <li><b>To drive a TV:</b> a micro-HDMI to HDMI cable (the Pi 4 and 5 have micro-HDMI ports).</li>
+          <li><b>A Mac or Windows computer</b> with an SD card slot or reader, to set up the card.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="card">
+      <div class="fsec__text">
+        <h2>1. Set up the SD card</h2>
+        <p>Raspberry Pi Imager puts the Pi's operating system on the card, and lets you name the Pi and turn on remote access as it goes.</p>
+        <ol class="steps">
+          <li>Download and open <a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">Raspberry Pi Imager</a> (free), and put the SD card in your computer.</li>
+          <li><b>Device:</b> choose your Pi model.</li>
+          <li>
+            <b>Operating system:</b> choose <b>Raspberry Pi OS (64-bit)</b>. That's the version with a desktop, which the TV display
+            needs. If the Pi will never drive a screen, <b>Raspberry Pi OS Lite (64-bit)</b> (under "Raspberry Pi OS (other)") is
+            smaller. Either way it must be <b>64-bit</b>.
+          </li>
+          <li><b>Storage:</b> choose the SD card. Check it's the card and not another drive: everything on it is erased.</li>
+          <li>
+            <b>Customisation:</b> when Imager offers to customise the OS, say yes and fill in:
+            <ul>
+              <li><b>Hostname:</b> <code>rf-ranger</code>. The Pi's address becomes <code>rf-ranger.local</code>.</li>
+              <li><b>Username and password:</b> choose them and write them down. You'll need them in the next step.</li>
+              <li><b>Time zone:</b> yours. Planning Center auto-sync runs on the Pi's clock.</li>
+              <li><b>Wi-Fi:</b> leave it out if you're using a cable.</li>
+              <li><b>SSH</b> (under Services or Remote access): turn it on, with password authentication.</li>
+            </ul>
+          </li>
+          <li>Write the card. When Imager says it's done, eject the card.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="start">
+      <div class="fsec__text">
+        <h2>2. Start the Pi and connect to it</h2>
+        <ol class="steps">
+          <li>Put the card in the Pi. Plug in the Ethernet cable, and the TV if you're using one. Then plug in the power.</li>
+          <li>Give it a few minutes: the first start sets itself up and restarts once.</li>
+          <li>
+            On your computer, open <b>Terminal</b> (Mac) or <b>PowerShell</b> (Windows) and connect, using the username you chose:
+            <div class="cmd"><pre><code>ssh yourname@rf-ranger.local</code></pre><button type="button" class="cmd__copy">Copy</button></div>
+            The first time, type <code>yes</code> to trust the Pi. Then type your password; nothing shows while you type, which is normal.
+          </li>
+        </ol>
+        <p class="note">
+          <b>"Could not resolve hostname"?</b> Some networks don't pass <code>.local</code> names. Find the Pi's IP address in
+          your router's list of devices and use that instead: <code>ssh yourname@192.168.1.50</code>. If the Pi is on a TV with
+          a keyboard and mouse, you can also skip ssh and open Terminal on the Pi's own desktop.
+        </p>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="install">
+      <div class="fsec__text">
+        <h2>3. Install RF Ranger</h2>
+        <p>Paste this into the same window and press Enter:</p>
+        <div class="cmd"><pre><code>curl -fsSL https://raw.githubusercontent.com/jdnelson19/RF-Ranger/main/packaging/linux/install.sh | bash</code></pre><button type="button" class="cmd__copy">Copy</button></div>
+        <p>It downloads the latest RF Ranger, sets it to start every time the Pi does, and asks two things:</p>
+        <ul>
+          <li><b>An admin password</b>, typed twice. See <a href="#admin">below</a> for what it's for. You can skip it and set one later.</li>
+          <li><b>Whether to show RF Ranger on the Pi's own screen</b> (only with the desktop version). Say yes for a Pi behind a TV.</li>
+        </ul>
+        <p>
+          It may ask for your password again when it needs to install something. When it finishes it prints the addresses to
+          open. If you chose the screen, restart the Pi to start it:
+        </p>
+        <div class="cmd"><pre><code>sudo reboot</code></pre><button type="button" class="cmd__copy">Copy</button></div>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="open">
+      <div class="fsec__text">
+        <h2>4. Open it from anywhere on the network</h2>
+        <ul>
+          <li><b>Engineer view</b> on a laptop or iPad: <code>http://rf-ranger.local:8058</code></li>
+          <li><b>Pickup screen</b> for another TV: <code>http://rf-ranger.local:8058/#/pickup</code></li>
+          <li>The Pi's own screen shows the pickup screen. Choose what it shows from the engineer view (<b>Pickup display</b>) or with a show preset.</li>
+        </ul>
+        <p class="note">
+          <b>Tip:</b> some Android tablets and older Windows PCs can't open <code>.local</code> addresses. Use the Pi's IP
+          address instead, and ask whoever runs your network to give the Pi a fixed IP address (a DHCP reservation) so
+          bookmarks keep working.
+        </p>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="admin">
+      <div class="fsec__text">
+        <h2>The admin password</h2>
+        <p>
+          Connecting Planning Center, adding or forgetting a device and the Device Inspector change how RF Ranger works, so
+          other screens on the network can't use them. On a Mac or Windows laptop you'd use them on that laptop. A Pi has
+          nobody sitting at it, so with an admin password set, those pages show a password box on any screen instead.
+        </p>
+        <ul>
+          <li>Set or change it on the Pi: <code>rf-ranger --set-password</code> (changing it signs every screen out).</li>
+          <li>On a shared iPad, sign out again from ⚙ → <b>Sign out of admin</b>.</li>
+          <li>Keep RF Ranger on your production network, not the open internet.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="update">
+      <div class="fsec__text">
+        <h2>Updating</h2>
+        <p>
+          When the engineer view says a new version is out, connect to the Pi as in step 2 and run the
+          <a href="#install">install command</a> again. Your settings, presets, Planning Center link and display setup are kept.
+        </p>
+        <p class="muted">
+          To remove RF Ranger: the same command, with <code>bash -s -- --uninstall</code> in place of <code>bash</code> at the end.
+        </p>
+      </div>
+    </section>
+
+    <section class="fsec fsec--text" id="help">
+      <div class="fsec__text">
+        <h2>Troubleshooting</h2>
+        <ul>
+          <li><b>No receivers show up.</b> The Pi needs to be wired to the same network as the receivers. If they're on another network, sign in as admin and add each one by IP address on the Devices page.</li>
+          <li><b>"This is 32-bit Raspberry Pi OS".</b> Set up the card again (step 1) and choose the 64-bit version.</li>
+          <li><b>The TV shows the desktop, not RF Ranger.</b> Run the install command again with <code>bash -s -- --display</code> in place of <code>bash</code>, then restart the Pi.</li>
+          <li><b>The TV goes black after a while.</b> Check the TV's own power-saving or auto-off settings.</li>
+          <li>
+            <b>Something else.</b> Is RF Ranger running? <code>sudo systemctl status rf-ranger</code>. Its log is in
+            <code>~/.rf-ranger/logs/rf-ranger.log</code>. <a href="/#feedback">Tell us</a> what happened and we'll help.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fpage__cta">
+      <h2>Not using a Pi?</h2>
+      <p class="lede">On a Mac or Windows laptop, RF Ranger is a normal download.</p>
+      <div class="downloads"><a class="btn btn--primary" href="/#download"><span><b>Download RF Ranger</b></span></a></div>
+    </section>
+  </main>
+
+  <script>
+    // Copy buttons for the commands.
+    for (const btn of document.querySelectorAll('.cmd__copy')) {
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.parentElement.querySelector('code').textContent);
+          btn.textContent = 'Copied';
+        } catch {
+          btn.textContent = 'Select and copy';
+        }
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+      });
+    }
+  </script>
+
+  <footer class="foot">
+    <span>RF Ranger · free and open source (MIT)</span>
+    <span class="foot__links">
+      <a class="foot__gh" href="https://github.com/jdnelson19/RF-Ranger" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.88.87 2.34.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg>
+        GitHub
+      </a>
+      <a class="foot__more" href="https://github.com/jdnelson19/SlideRoller" target="_blank" rel="noopener" title="Another project by the same developer">SlideRoller</a>
+    </span>
+    <p class="foot__note">Inspired by Micboard. Built as an independent alternative.</p>
+  </footer>
+</body>
+</html>
